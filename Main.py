@@ -14,14 +14,14 @@ address =''
 #数据库存在时自己链接，如果不存在就新建一个相应的db文件
 conn=sqlite3.connect("./Test.db")
 #创建表
-conn.execute('''CREATE TABLE DataTable
-     (Namee  TEXT   NULL,
-       ID   TEXT    NULL ,
-       Tag            TEXT   NULL,
-        Types          TEXT   NULL,
-        Location      TEXT   NULL,
-        Address       TEXT   NULL);''')
-print("SuccessOpenDatabase")
+# conn.execute('''CREATE TABLE DataTable
+#      (Namee  TEXT   NULL,
+#        ID   TEXT    NULL ,
+#        Tag            TEXT   NULL,
+#         Types          TEXT   NULL,
+#         Location      TEXT   NULL,
+#         Address       TEXT   NULL);''')
+# print("SuccessOpenDatabase")
 # 向表中插入记录
 # 注意sql语句中使用了格式化输出的占位符%s和%d来表示将要插入的变量，其中%s需要加引号'
 
@@ -73,7 +73,7 @@ def parse(jsons,details,id,name,tag,types,location,address):
             details.append(restaurant)
             sql = "INSERT INTO DataTable(Namee,ID ,Tag,Types,Location,Address)VALUES ('%s','%s','%s','%s','%s','%s')" % (name, id, tag, types, location, address)
             conn.execute(sql)
-            print(id)
+            #print(id)
 
     except:
         pass
@@ -84,7 +84,9 @@ def loop(num):
         jsons = gethtml(url, keywords, city, page, key, headers)
         parse(jsons, details,id,name,tag,types,location,address)
         page = page + 1
-
+#多返回值
+def returnMultu():
+    return  "fdas",'fsa',"fffffffffds"
 details = []
 loop(20)
 for i in details:
@@ -96,3 +98,5 @@ for i in details:
     #print(i)
 conn.commit()
 conn.close()
+x,y,z=returnMultu()
+print(x+y+z)
