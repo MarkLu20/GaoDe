@@ -14,14 +14,14 @@ address =''
 #数据库存在时自己链接，如果不存在就新建一个相应的db文件
 conn=sqlite3.connect("./Test.db")
 #创建表
-# conn.execute('''CREATE TABLE DataTable
-#      (Namee  TEXT   NULL,
-#        ID   TEXT    NULL ,
-#        Tag            TEXT   NULL,
-#         Types          TEXT   NULL,
-#         Location      TEXT   NULL,
-#         Address       TEXT   NULL);''')
-# print("SuccessOpenDatabase")
+conn.execute('''CREATE TABLE DataTable
+     (Namee  TEXT   NULL,
+       ID   TEXT    NULL ,
+       Tag            TEXT   NULL,
+        Types          TEXT   NULL,
+        Location      TEXT   NULL,
+        Address       TEXT   NULL);''')
+print("SuccessOpenDatabase")
 # 向表中插入记录
 # 注意sql语句中使用了格式化输出的占位符%s和%d来表示将要插入的变量，其中%s需要加引号'
 
@@ -33,8 +33,8 @@ headers = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;
            'Connection': 'keep-alive',
            'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0'}
 
-keywords = "美食"
-city= "zhengzhou"
+keywords = "道路"
+city= "上海市静安区"
 page = 1
 key = "eede91fe8ab216f9b5a1d675f1b00f53"
 
